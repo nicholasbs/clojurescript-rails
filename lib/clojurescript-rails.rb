@@ -15,7 +15,8 @@ module ClojurescriptRails
     end
 
     def evaluate(scope, locals = {}, &block)
-      @output = "FOO!!!"
+      cmd = "/Users/nicholasbs/dev/clojurescript/bin/cljsc #{@file} '{:optimizations :advanced}'"
+      @output = `#{cmd}`
     end
   end
 
