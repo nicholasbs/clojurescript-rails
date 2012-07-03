@@ -2,7 +2,7 @@ require 'ruby-debug'
 require 'clojurescript_rails/template'
 
 module ClojurescriptRails
-  CLJS_COMPILER = File.dirname(__FILE__) + "/../clojurescript/bin/cljsc"
+  ClojurescriptCompiler.prepare_ng
 
   class Engine < ::Rails::Engine
     initializer :clojurescript_rails do |app|
