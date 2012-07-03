@@ -4,13 +4,8 @@ require 'nailgun'
 
 module ClojurescriptRails
   class ClojurescriptTemplate < ::Tilt::Template
-    def self.engine_initialized?
-      not @compiler.nil?
-    end
-
     def initialize_engine
-      debugger
-      @compiler = ClojurescriptCompiler.new
+      @compiler ||= ClojurescriptCompiler.new
     end
 
     def prepare
