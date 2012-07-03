@@ -6,17 +6,14 @@ require "clojurescript-rails/version"
 # Describe your gem and declare its dependencies:
 Gem::Specification.new do |s|
   s.name        = "clojurescript-rails"
-  s.version     = ClojurescriptRails::VERSION
-  s.authors     = ["TODO: Your name"]
-  s.email       = ["TODO: Your email"]
-  s.homepage    = "TODO"
-  s.summary     = "TODO: Summary of ClojurescriptRails."
-  s.description = "TODO: Description of ClojurescriptRails."
+  s.version     = ClojureScriptRails::VERSION
+  s.authors     = ["Zach Allaun", "Nicholas Bergson-Shilcock"]
+  s.email       = ["zachallaun@gmail.com"]
+  s.homepage    = "http://github.com/nicholasbs/clojurescript-rails"
+  s.summary     = "A plugin for using ClojureScript with the Rails asset pipeline."
+  s.description = ""
 
-  s.files = Dir["{app,config,db,lib}/**/*"] + ["MIT-LICENSE", "Rakefile", "README.rdoc"]
-  s.test_files = Dir["test/**/*"]
+  s.files = Dir["{app,config,db,lib}/**/*"] + ["MIT-LICENSE", "Rakefile", "README.md"]
 
   s.add_dependency "rails", "~> 3.2.6"
-
-  s.add_development_dependency "sqlite3"
 end
