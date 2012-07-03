@@ -1,8 +1,8 @@
 require 'rails'
 require 'tilt'
 
-module ClojureScriptRails
-  class ClojureScriptTemplate < ::Tilt::Template
+module ClojurescriptRails
+  class ClojurescriptTemplate < ::Tilt::Template
     #def self.engine_initialized?
     #  true
     #end

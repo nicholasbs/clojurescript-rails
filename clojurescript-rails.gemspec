@@ -1,15 +1,15 @@
 $:.push File.expand_path("../lib", __FILE__)
 
 # Maintain your gem's version:
-require "clojurescript-rails/version"
+require "clojurescript_rails/version"
 
 # Describe your gem and declare its dependencies:
 Gem::Specification.new do |s|
-  s.name        = "clojurescript-rails"
-  s.version     = ClojureScriptRails::VERSION
+  s.name        = "clojurescript_rails"
+  s.version     = ClojurescriptRails::VERSION
   s.authors     = ["Zach Allaun", "Nicholas Bergson-Shilcock"]
   s.email       = ["zachallaun@gmail.com"]
-  s.homepage    = "http://github.com/nicholasbs/clojurescript-rails"
+  s.homepage    = "http://github.com/nicholasbs/clojurescript_rails"
   s.summary     = "A plugin for using ClojureScript with the Rails asset pipeline."
   s.description = ""
 

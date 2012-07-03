@@ -1,4 +1,4 @@
-# ClojureScriptRails
+# ClojurescriptRails
 
 A plugin for using ClojureScript with the Rails asset pipeline.
 
