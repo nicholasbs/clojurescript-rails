@@ -5,10 +5,10 @@ require 'nailgun'
 module ClojurescriptRails
   class ClojurescriptTemplate < ::Tilt::Template
     def initialize_engine
-      @compiler ||= ClojurescriptCompiler.new
     end
 
     def prepare
+      @compiler ||= ClojurescriptCompiler.new
     end
 
     def evaluate(scope, locals = {}, &block)
