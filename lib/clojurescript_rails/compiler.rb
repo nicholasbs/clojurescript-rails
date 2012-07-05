@@ -15,7 +15,7 @@ module ClojurescriptRails
     end
 
     def compile(file)
-      `#{@@ng_path} clojure.main #{COMPILER} #{file} #{Config.config_string}`
+      `#{@@ng_path} clojure.main #{COMPILER} #{file} #{Config}`
     end
   end
 end

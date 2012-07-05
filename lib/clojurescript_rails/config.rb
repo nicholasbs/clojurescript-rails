@@ -3,27 +3,27 @@ module ClojurescriptRails
   class Config
 
     class << self
-      attr_reader :config, :opts
+      attr_reader :opts, :valid_opts
     end
 
     # Valid clojurescript compiler config options
-    @opts = {
+    @valid_opts = {
       :optimizations => [:simple, :whitespace, :advanced],
       :pretty_print => [true, false]
     }
 
-    # Default configuration
-    @config = { :optimizations => :advanced }
+    # Default configuration options
+    @opts = { :optimizations => :advanced }
 
     ##
-    # config setter
+    # opts setter
     #
     # Raises an ArgumentError unless configuration options and values are
-    # present in Config.opts
+    # present in Config.valid_opts
 
-    def self.config=(config)
-      invalid = config.reject do |k, v|
-        @opts.has_key?(k) and @opts[k].include?(v)
+    def self.opts=(opts)
+      invalid = opts.reject do |k, v|
+        @valid_opts.has_key?(k) and @valid_opts[k].include?(v)
       end
 
       unless invalid.empty?
@@ -32,14 +32,20 @@ module ClojurescriptRails
         raise ArgumentError.new(msg)
       end
 
-      @config = config
+      @opts = opts
     end
 
-    ##
-    # Returns the clojure map string representation of @config
+    def self.to_s
+      opts_string
+    end
 
-    def self.config_string
-      kvs = config_to_clj().reduce("") { |s, kv| "#{s} #{kv[0]} #{kv[1]}" }
+  private
+
+    ##
+    # Returns the clojure map string representation of @opts
+
+    def self.opts_string
+      kvs = opts_to_clj().reduce("") { |s, kv| "#{s} #{kv[0]} #{kv[1]}" }
       "\"{#{kvs} }\""
     end
 
@@ -47,14 +53,13 @@ module ClojurescriptRails
     # Returns a Hash with keys and values converted to strings represented
     # as clojure literals
 
-    def self.config_to_clj
-      @config.reduce({}) do |coll, kv|
+    def self.opts_to_clj
+      @opts.reduce({}) do |coll, kv|
         k, v = kv.map { |x| item_to_clj x }
         coll.merge k => v
       end
     end
 
-  private
     def self.item_to_clj(item)
       item.inspect.gsub /_/, "-"
     end
