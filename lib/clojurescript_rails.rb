@@ -1,12 +1,10 @@
 require 'ruby-debug'
+require 'rails'
+require 'tilt'
+require 'nailgun'
+require 'clojurescript_rails/config'
 require 'clojurescript_rails/template'
+require 'clojurescript_rails/railtie'
+require 'clojurescript_rails/compiler'
 
-module ClojurescriptRails
-  ClojurescriptCompiler.prepare_ng
-
-  class Engine < ::Rails::Engine
-    initializer :clojurescript_rails do |app|
-      app.assets.register_engine '.cljs', ClojurescriptTemplate
-    end
-  end
-end
+ClojurescriptRails::Compiler.prepare_ng
