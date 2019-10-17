@@ -15,7 +15,7 @@ Gem::Specification.new do |s|
 
   s.files = Dir["{app,config,db,lib}/**/*"] + ["MIT-LICENSE", "Rakefile", "README.md"]
 
-  s.add_dependency "rails", "~> 3.2.6"
+  s.add_dependency "rails", ">= 3.2.6", "< 6.1.0"
   # TODO: Add dependency on nailgun once necessary changes are pushed upstream
   # s.add_dependency "nailgun", "0.0.2"
 end
